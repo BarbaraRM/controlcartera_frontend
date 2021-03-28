@@ -1,0 +1,72 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <h2>Inventario de Productos</h2>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">   
+            <div class="card-header"> 
+              <div class="row">
+                <div class="col-2" id="etiqueta"> <p>Buscar:</p></div>
+                <div class="col-4" id="buscador">
+                  <div class="form-group">
+                    <input 
+                      type="text" class="form-control" name = "filterProd"
+                      placeholder="Código o nombre del producto ..." [(ngModel)]="filterProd">
+                  </div>
+                </div>
+                <div class="col" id="etiqueta"> <p>Sucursal:</p></div>
+                <div class="col-4" id="buscador">
+                    <div class="caja">
+                      <select name="miselect" [(ngModel)]="filterProdSuc">
+                        <option value="" selected=true>Todas las ciudades</option>
+                        <option *ngFor="let sucursal of dataSucursal" value={{sucursal.ciudad}}>{{sucursal.ciudad}}</option>
+                      </select>                        
+                    </div>                    
+                  </div>
+            </div>
+            </div>              
+            <div class="card-body">            
+              <div class="row mt-5">
+                <div class="col">
+                  <table class="table table-hover">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Código</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Categoría</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Sucursal</th>  
+                        <th scope="col">Ciudad</th>                      
+                        <th scope="col">Cant.</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">P.V.P</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let usuario of dataSource | filterProd:filterProd | filterProdSuc:filterProdSuc | paginate: {itemsPerPage: 15, currentPage: pageActual}; index as i">
+                        <th scope="row"> {{i+1}}</th>
+                        <td>{{usuario.id_producto}}</td>
+                        <td>{{usuario.nombre_producto}}</td>
+                        <td>{{usuario.tipo_producto}}</td>
+                        <td>{{usuario.descripcion}}</td>
+                        <td>{{usuario.nombre_sucursal}}</td>
+                        <td>{{usuario.ciudad_sucursal}}</td>
+                        <td>{{usuario.cantidad}}</td>
+                        <td>{{usuario.precio}}</td>
+                        <td>{{usuario.precio_vp}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <pagination-controls (pageChange)="pageActual = $event" ></pagination-controls>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  

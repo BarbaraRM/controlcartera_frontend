@@ -1,0 +1,49 @@
+<div mat-dialog-title>
+    <div class="row">    
+    Filtrar:
+    <div class="col-6" id="buscador">          
+        <input 
+            type="text" class="form-control" name = "filterProd"
+            placeholder="Código o nombre del producto ..." [(ngModel)]="filterProd" autofocus>
+      </div>
+      <button mat-button id="button-close"  [mat-dialog-close]="true" autofocus=false><i class="material-icons">cancel_presentation</i></button>
+    </div>
+    
+</div>
+<div mat-dialog-content> 
+    <form #formRegister="ngForm">
+      <div class="row mt-5">
+        <div class="col">
+          <table class="table table-hover">
+            <thead class="thead-dark">
+              <tr>                
+                <th id="minima_table" scope="col"> </th>
+                <th scope="col">Código</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Categoría</th>
+                <th scope="col">Descripción</th>                  
+                <th scope="col">Cant.</th>
+                <th scope="col">Precio</th>
+                <th scope="col">P.V.P</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let usuario of dataSource | filterProd:filterProd | paginate: {itemsPerPage: 15, currentPage: pageActual}; index as i">
+                    <td scope="row">
+                        <button mat-button class="button-success" (click)="onDblClickCell(usuario)" ><i class="material-icons">check_circle_outline</i></button>
+                    </td>
+                    <td>{{usuario.id_producto}}</td>
+                    <td>{{usuario.nombre_producto}}</td>
+                    <td>{{usuario.tipo_producto}}</td>
+                    <td>{{usuario.descripcion}}</td>
+                    <td>{{usuario.cantidad}}</td>
+                    <td>{{usuario.precio}}</td>
+                    <td>{{usuario.precio_vp}}</td>
+                  </tr>
+            </tbody>
+          </table>
+          <pagination-controls (pageChange)="pageActual = $event" ></pagination-controls>
+        </div>
+      </div>
+    </form>
+</div>

@@ -1,0 +1,55 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <h2>Usuarios</h2>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">   
+            <div class="card-header"> 
+                <div class="row">
+                    <div class="col-6" id="buscador">
+                        <button mat-raised-button (click)="onCreate()" >Agregar nuevo usuario</button>
+                    </div>
+                </div>
+                
+            </div>              
+            <div class="card-body">            
+              <div class="row mt-5">
+                <div class="col">
+                  <table class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">C.I</th>
+                            <th scope="col">Nombres</th>                            
+                            <th scope="col">Cargo</th>
+                            <th scope="col">Sucursal</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Acciones</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let usuario of usuarios | paginate: {itemsPerPage: 12, currentPage: pageActual}; index as i">
+                            <th scope="row"> {{i+1}}</th>
+                            <td>{{usuario.usuario}}</td>
+                            <td>{{usuario.id_usuario}}</td>
+                            <td>{{usuario.nombres}} {{usuario.apellidos}}</td>                                                  
+                            <td>{{usuario.cargo}}</td>
+                            <td>{{usuario.nombre_sucursal}}</td>
+                            <td>{{usuario.estado}}</td>  
+                            <td>                              
+                              <button mat-button id="button-success" (click)="onEdit(usuario)" ><i class="material-icons">create</i></button>
+                              <button mat-button id="button-cancel" (click)="onDelete(usuario.id_usuario)" ><i class="material-icons">delete_outline</i></button>
+                            </td>
+                          </tr>
+                    </tbody>
+                  </table>
+                  <pagination-controls (pageChange)="pageActual = $event" ></pagination-controls>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>  

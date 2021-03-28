@@ -1,0 +1,104 @@
+<div mat-dialog-title>
+    {{this.data['titulo']}}
+    <hr>
+</div>
+<div mat-dialog-content> 
+    <form #formRegister="ngForm">
+    <div class="row">
+        <div class="col">
+            <mat-form-field  appearance="legacy">
+                <mat-label>Cedula</mat-label>
+                <input matInput maxlength="13" minlength="10" type="text" id="cedula" name="cedula"  placeholder="Cedula" (keypress)="onlyNumberKey($event)" [(ngModel)]="this.user.id_usuario" required>
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field  appearance="legacy">
+                <mat-label>Usuario</mat-label>
+                <input matInput type="text" id="usuario" name="usuario" placeholder="Nombre de usuario" [(ngModel)]="this.user.usuario" required>
+            </mat-form-field>
+        </div>
+    </div>
+        
+    <div class="row">
+        <div class="col">
+            <mat-form-field  appearance="legacy">
+                <mat-label>Nombres</mat-label>
+                <input matInput type="text" id="name" name="name" placeholder="Nombres" [(ngModel)]="this.user.nombres" required>
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field appearance="legacy">
+                <mat-label>Apellidos</mat-label>
+                <input matInput type="text" id="apellido" name="apellido" placeholder="Apellidos" [(ngModel)]="this.user.apellidos" required>
+            </mat-form-field>
+        </div>
+    </div>
+       
+    <div class="row">
+        <div class="col">
+            <mat-form-field  appearance="legacy">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" id="email" name="email" placeholder="Email" [(ngModel)]="user.email" required>
+            </mat-form-field>
+        </div>
+
+        <div class="col">
+            <mat-form-field  appearance="legacy">            
+                <mat-label>Contraseña</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" id="password" name="password" placeholder="Contraseña" [(ngModel)]="this.user.contrasenia" required>                
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>            
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <mat-form-field  appearance="legacy">
+                <mat-label>Telefono</mat-label>
+                <input matInput type="tel" id="telefono" name="telefono" (keypress)="onlyNumberKey($event)" placeholder="Telefono" [(ngModel)]="this.user.n_telefono">
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field  appearance="legacy">
+                <mat-label>Cargo</mat-label>
+                <mat-select id="cargo" name="cargo" [(ngModel)]="this.user.cargo"  required>
+                    <mat-option value="VENDEDOR">Vendedor</mat-option>
+                    <mat-option value="SECRETARIA">Secretaria</mat-option>
+                    <mat-option value="GERENTE">Gerente</mat-option>
+                    <mat-option value="ADMINISTRADOR">Administrador</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">        
+        <div class="col">
+            <mat-form-field  appearance="legacy">
+                <mat-label>Sucursal</mat-label>
+                <mat-select id="nombre_sucursal" name="nombre_sucursal" [(ngModel)]="this.user.id_sucursal"  required>
+                    <mat-option *ngFor="let sucursal of dataSucursal" value={{sucursal.id_sucursal}}>{{sucursal.ciudad}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field  appearance="legacy">
+                <mat-label>Estado</mat-label>
+                <mat-select id="cargo" name="cargo" [(ngModel)]="this.user.estado"  required>
+                    <mat-option selected value="ACTIVO">Activo</mat-option>
+                    <mat-option value="INACTIVO">Inactivo</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div> 
+    <hr>
+    </form>
+</div>     
+
+<div mat-dialog-actions>
+
+    <button mat-button id="button-success" (click)="this.data['add'] ? onRegister() : onEdit()">{{this.data['accion']}}</button> 
+    <button mat-button id="button-cancel"  [mat-dialog-close]="true" (click)="onClickNO()">Cancelar</button>
+    
+</div>

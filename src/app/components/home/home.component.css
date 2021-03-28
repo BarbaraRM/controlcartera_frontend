@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-align: center;    
+    box-sizing: border-box;
+    font-family: Tahoma;
+}
+
+
+body{
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+}
+
+h1{
+    color:white;
+    font-weight: bold;
+    margin: 20px auto 10px auto;
+}
+
+h3{
+    color: #147469;
+    margin: 0px auto 30px auto;
+}
+
+.fecha-hora{
+    color: #FFF;
+    background: #000;
+    position:absolute; 
+    left:0px; 
+    right:0px; 
+    bottom:0px; 
+    padding: 10px;
+    height:auto; /*alto del div*/
+    z-index:0;
+}
+
+#Widget{
+    width: fit-content;
+    height: auto;
+    text-align: center;
+    margin: 0px 40px;
+}
+
+#Widget p{
+    display: inline-block;
+    line-height: 1em;
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    width: auto;
+    padding: 5px;
+}
+
+#espaciador{
+    margin: 30px;
+}
+
+.fecha{
+    float:left;
+}
+
+.hora{
+    float: right;
+    
+}

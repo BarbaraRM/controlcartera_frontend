@@ -1,0 +1,39 @@
+<div class="logo">
+    <a id="nombre_empresa" routerLink="/home">GADVAY <br>HAIR CARE & BEAUTY</a>
+    <br>
+    <img src={{getImage()}} id="user_image"/>
+    <br>
+    <a id="user_name">{{user.usuario}}</a>
+    <br>
+    <a id="user_rol">{{user.cargo}}</a> <!-- {{user.cargo}} -->
+    <br>
+    <a id="user_sucursal">{{user.id_sucursal}}</a> <!-- {{user.sucursal}} -->
+</div>
+<div class="sidebar-wrapper">   
+    <ul class="nav"> 
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="nav-item">
+            <div *ngIf="isFather(menuItem.class) && isAllow(menuItem.path, getCargo()) && containFather(menuItem.class)">
+                {{setText(menuItem.class)}}
+                <p id="father_nav"  >{{menuItem.class}}</p>
+            </div>            
+            <a class="a nav-link" id="opcion" [routerLink]="[menuItem.path]" *ngIf="isAllow(menuItem.path, getCargo())">
+                <i class="material-icons">{{menuItem.icon}}</i>
+                <p>{{menuItem.title}}</p>
+            </a>
+        </li>
+        <hr/>
+    </ul>
+    <div *ngIf="isMobileMenu()">
+        <ul class="nav navbar-nav nav-mobile-menu">
+            <li class="nav-item" >
+                <a class="a nav-link" id="nav_especial" href="/user-profile"> <i class="material-icons">account_circle</i> <p>Ver perfil</p></a>
+            </li>
+            <li class="nav-item" >                
+                <a class="a nav-link" id="nav_especial" (click)="onLogout()"> <i class="material-icons">power_settings_new</i> <p>Cerrar Sesión</p></a>
+            </li>
+        </ul>
+        <hr/>
+    </div>    
+</div>
+
+          

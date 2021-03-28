@@ -1,0 +1,28 @@
+#button-success{
+    margin: auto auto auto 10px !important;
+    background-color: #2cd412d8 !important;
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+}
+#button-success:hover{
+    background-color: #aaf39fd8 !important;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+}
+
+#button-cancel{
+    margin: auto 10px auto auto !important;
+    background-color: #df2525 !important;
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+}
+
+#button-cancel:hover{
+   background-color: #f08484d8 !important;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+}

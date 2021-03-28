@@ -1,0 +1,156 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row" id="encabezado" >
+            <p class="etiqueta">Código:</p>
+            <p class="resultado_encabezado">{{this.factura.id_factura}}</p>
+            <p class="etiqueta">Fecha creación:</p>
+            <p class="resultado_encabezado">{{this.fecha}}</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-5 col-xs-6" >
+                <div class="row">                
+                    <div class="card">
+                        <div class="card-header">
+                            Cliente
+                        </div>
+                        <div class="card-body text-center">
+                            <form #formRegister="ngForm">
+                                <div class="row">
+                                    <div class="col-5 col-xs-4">
+                                        <mat-form-field  appearance="legacy">
+                                            <mat-label>C.I / R.U.C.</mat-label>
+                                            <input matInput type="text" id="cedula" name="cedula" (keypress)="onlyNumberKey($event)" minlength="10" maxlength="13" placeholder="Cedula" [(ngModel)]="this.cliente.id_cliente" required>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-2 col-xs-6">
+                                        <button mat-button class="button-search" (click)="searchClient()" ><i class="material-icons">search</i></button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <mat-form-field  appearance="legacy">
+                                            <mat-label>Nombres</mat-label>
+                                            <input matInput type="text" id="nombres" name="nombres"  placeholder="Apellidos y Nombres" [(ngModel)]="this.nombreCompleto" readonly>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <mat-form-field  appearance="legacy">
+                                            <mat-label>Direccion</mat-label>
+                                            <input matInput type="text" id="direccion" name="direccion"  placeholder="Direccion" [(ngModel)]="this.cliente.direccion" readonly>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header">
+                            Producto
+                        </div>
+                        <div class="card-body text-center">
+                            <form #formRegister="ngForm">
+                                <div class="row">
+                                    <div class="col-md-4" >
+                                        <mat-form-field  appearance="legacy">
+                                            <mat-label>Codigo</mat-label>
+                                            <input matInput type="text" id="codigo" name="codigo" placeholder="Codigo" [(ngModel)]="this.producto.id_producto" required>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-3"  >
+                                        <button mat-button class="button-search" (click)="searchProduct()" ><i class="material-icons">search</i></button>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <mat-form-field  appearance="legacy">
+                                            <mat-label>Stock</mat-label>
+                                            <input matInput type="number" id="stock" name="stock" placeholder="Stock" [(ngModel)]="this.producto.cantidad" readonly>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <mat-form-field  appearance="legacy">
+                                            <mat-label>Cant.</mat-label>
+                                            <input matInput type="number" id="cantidad" name="cantidad" value="1" placeholder="1" [(ngModel)]="this.cantidad" required>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <mat-form-field  appearance="legacy">
+                                            <mat-label>Descripcion</mat-label>
+                                            <input matInput type="text" id="nombre_producto" name="nombre_producto"  placeholder="descripcion" [(ngModel)]="this.producto.nombre_producto" readonly>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <button mat-button id="button-add" (click)="addProduct()" ><i class="material-icons">add_circle_outline</i>    Agregar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-7 col-xs-6">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <table class="table table-hover ">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th id="minima_table" scope="col"> </th>
+                                <th id="valor_table" scope="col">Código</th>
+                                <th scope="col">Detalle</th>
+                                <th id="valor_table" scope="col">Cant.</th>
+                                <th id="valor_table" scope="col">P.V.P</th>
+                                <th id="valor_table" scope="col">Total</th>                                    
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let producto of listaProd | paginate: {itemsPerPage: 12, currentPage: pageActual}; index as i">
+                                    <td><button mat-button id="button-eliminar" (click)="onDelete(producto.id_producto)" ><i class="material-icons">delete_outline</i></button></td>
+                                    <td>{{producto.id_producto}}</td>
+                                    <td>{{producto.nombre_producto}}</td>
+                                    <td>{{producto.cantidad}}</td>
+                                    <td>{{producto.precio_vp}}</td>
+                                    <td>{{producto.total}}</td>
+                                    
+                                </tr>   
+                            </tbody>
+                        </table>
+                        <pagination-controls (pageChange)="pageActual = $event" ></pagination-controls>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="col">
+                            <br>
+                            <div class="row" id="resultados_pagar" >                                
+                                <p class="etiqueta">Subtotal:</p>
+                                <p class="resultados_factura">{{this.factura.subtotal}}</p>
+                            </div>
+                            <div class="row" id="resultados_pagar" >                                
+                                <p class="etiqueta">I.V.A:</p>
+                                <p class="resultados_factura">{{this.factura.iva}}</p>
+                            </div>
+                            <div class="row" id="resultados_pagar" >                                
+                                <p class="etiqueta">Total:</p>
+                                <p class="resultados_factura">{{this.factura.total}}</p>
+                            </div>
+                            <br>
+                            <div class="row" id="resultados_pagar">
+                                <button mat-button id="button-success" (click)="onSave()">Facturar</button> 
+                                <button mat-button id="button-cancel"  [mat-dialog-close]="true" (click)="onClickNO()">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </div>
+</div>
+  
+  
+  

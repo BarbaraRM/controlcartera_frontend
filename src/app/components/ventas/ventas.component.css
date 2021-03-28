@@ -1,0 +1,60 @@
+.card-body{
+    padding: 0px 30px;
+}
+
+.card-header{
+    padding: 0px !important;
+}
+
+thead {
+    font-size: 0.5em !important;
+    font-weight: bold !important;
+}
+
+.card{
+    font-size: 12px !important;
+    min-width: 800px;
+    margin-top: 5px;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding: 5px 8px;
+    vertical-align: middle;
+    font-size: 12px;
+    text-align: center;
+}
+
+.table > thead > tr > th{
+    font-weight: bold;
+    text-align: center;
+}
+
+.main-content{
+    margin-top: 60px;
+    padding: 10px 80px;
+}
+
+.mt-5, .my-5{
+    margin-top: 0px !important;
+
+}
+
+#etiqueta{
+    font-size: 13px;
+    font-weight: bold;
+    text-align: right;
+    width: 100%;
+    margin-top: 12px;
+}
+
+#buscador{
+    font-size: 12px;
+}
+
+h2{
+    padding: 0%;
+    margin: 0%;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}

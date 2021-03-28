@@ -1,0 +1,34 @@
+
+h4{
+    border-bottom: 1px solid #e0e0e0 !important;
+    font-weight: bold;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 12px !important;
+}
+h3{
+    font-weight: bold;
+    font-size: 14px !important;
+}
+
+#etiqueta{
+    width: fit-content;
+    text-align: right;
+    width: 20% !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+}
+
+#descripcion{
+    width: auto;
+    text-align: left;
+    width: 80% !important;
+    font-size: 12px !important;
+}
+#presentation{
+    width: 400px;
+    min-width: 300px !important;
+}
+p {
+    margin: 0px;
+}

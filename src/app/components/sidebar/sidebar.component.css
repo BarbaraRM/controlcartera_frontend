@@ -1,0 +1,39 @@
+.sidebar-wrapper{
+    font-size: 12px;
+}
+
+.logo{
+ text-align: center;
+}
+
+.logo a{
+    font-size: 14px;
+    margin: 2px 0px 0px 0px;
+    padding: 0px;
+}
+#nombre_empresa{
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+}
+#user_image{
+    margin: 5px 0px;
+    height: 110px;
+}
+#father_nav{
+    margin: 0px; padding: 0px 20px; font-weight: bold;
+}
+#nav_especial{
+    margin: 1px 20px; padding: 6px 4px; font-weight: bold;
+}
+.a nav-link{
+    height: 7px;
+}
+
+#opcion{
+    height: 35px; padding-top: 0px; padding-bottom: 0px; margin-left: 40px; margin-top: 0px; margin-bottom: 0px;
+}
+
+
+
+

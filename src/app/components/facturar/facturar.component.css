@@ -1,0 +1,149 @@
+.main-content{
+    margin-top: 60px;
+    padding: 10px 15px;
+    
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+    padding-bottom: 0.8em !important;
+}
+
+.etiqueta{
+    font-size: 13px;
+    font-weight: bold;
+    margin: 5px 5px 5px 35px;
+}
+.resultado_encabezado{
+    font-size: 13px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: 5px;
+    border-style: solid;
+    border-radius: 2px;
+    border-color: rgb(85, 140, 241);
+}
+#encabezado{
+    margin-left: auto;
+    margin-right: 20px;
+    width: fit-content;
+}
+
+.card {
+    margin-bottom: 0 !important;
+}
+.card-header {
+    padding: 0.75rem 1.25rem 0 1.25rem !important; 
+    font-weight: bold;
+    font-size: 13px;
+}
+.card-body {
+    padding-top: 0 !important; 
+    margin-top: 0 !important;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding: 2px 4px;
+    vertical-align: middle;
+    font-size: 12px;
+    text-align: center;
+}
+.table > thead > tr > th{
+    font-weight: bold;
+    text-align: center;
+    width: auto !important;
+}
+table{
+    margin-top: 15px;
+}
+#minima_table{
+    width: 5% !important;
+}
+#valor_table{
+    width: 12% !important;
+}
+#button-eliminar{
+    width: fit-content;
+    color: white;
+    height: fit-content;
+    font-size: 13px;
+    background-color: #df2525 !important;
+}
+#button-eliminar:hover{
+    color: black;
+   background-color: #f08484d8 !important;
+}
+
+.button-search{
+    background-color: #494949d8 !important;
+    font-size: 20px !important;
+    font-weight: bold;
+    color: white;
+}
+.button-search:hover{
+    background-color: #818181d8 !important;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+#button-add{
+    margin: auto 10px auto auto !important;
+    background-color: #8cd481d8 !important;
+    font-size: 13px;
+    font-weight: bold;
+    width: 100%;
+    color: black;
+}
+#button-add:hover{
+    background-color: #aaf39fd8 !important;
+    font-size: 15px;
+    font-weight: bold;
+    width: 100%;
+    color: black;
+}
+
+#resultados_pagar{
+    margin-left: auto;
+    width: fit-content;
+    margin-top: 2px;
+}
+.resultados_factura{
+    font-size: 13px;
+    margin: 2px;
+    padding: 0 5px 0 10px;
+    border-style: solid;
+    border-radius: 2px;
+    border-color: rgb(3, 3, 3);
+    width: 85px;
+}
+#button-success{
+    margin: auto 10px auto auto !important;
+    background-color: #2cd412d8 !important;
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+}
+#button-success:hover{
+    background-color: #aaf39fd8 !important;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+}
+
+#button-cancel{
+    margin: auto 10px auto 10px !important;
+    background-color: #df2525 !important;
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+}
+
+#button-cancel:hover{
+   background-color: #f08484d8 !important;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+}

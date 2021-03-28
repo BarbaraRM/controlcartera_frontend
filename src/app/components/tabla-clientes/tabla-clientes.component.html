@@ -1,0 +1,54 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <h2>Listado de clientes</h2>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">   
+          <div class="card-header"> 
+            <div class="row">
+              <div class="col-2" id="etiqueta"> <p>Buscar:</p></div>
+              <div class="col-6" id="buscador">
+                <div class="form-group">
+                  <input 
+                    type="text" class="form-control" name = "filterClient"
+                    placeholder="Nombres o Apellidos ..." [(ngModel)]="filterClient">
+                </div>
+              </div>
+            </div>
+          </div>              
+          <div class="card-body">            
+            <div class="row mt-5">
+              <div class="col">
+                <table class="table table-hover">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">C.I</th>
+                      <th scope="col">Nombres</th>
+                      <th scope="col">Apellidos</th>
+                      <th scope="col">Teléfono</th>
+                      <th scope="col">Dirección</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let usuario of dataSource | filter:filterClient | paginate: {itemsPerPage: 12, currentPage: pageActual}; index as i">
+                      <th scope="row"> {{i+1}}</th>
+                      <td>{{usuario.id_cliente}}</td>
+                      <td>{{usuario.nombre_cliente}}</td>
+                      <td>{{usuario.apellido_cliente}}</td>
+                      <td>{{usuario.n_telefono}}</td>
+                      <td>{{usuario.direccion}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <pagination-controls (pageChange)="pageActual = $event" ></pagination-controls>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
